@@ -7,9 +7,11 @@ You may use this by either forking it, or simply adding your own parameters to t
 The following parameters are required:
 
 `org`: Your Azure organization.
+
 `proj`: Your Azure project name.
+
 `projurl`: Wherever your source is located.
 
-For example, berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE will get you the latest Azure Pipeline build for NHSE, and will redirect users directly to the Pipeline/source if anything is going wrong.
+For example, [berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE) will get you the latest Azure Pipeline build for NHSE, and will redirect users directly to the Pipeline/source if anything is going wrong.
 
 Enjoy!
