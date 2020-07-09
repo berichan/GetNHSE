@@ -1,19 +1,65 @@
-var request = new XMLHttpRequest();
-request.open('GET', 'https://dev.azure.com/project-pokemon/NHSE/_apis/build/builds?api-version=5.1', true);
-request.onload = function () {
+const deforganization = "project-pokemon";
+const defproject = "NHSE";
+const defprojurl = "https://github.com/kwsch/NHSE";
 
-  var data = JSON.parse(this.response);
-  if (request.status >= 200 && request.status < 400) {
-    let id = data.value[0].id;
-	let pc = data.value[0].definition.project.id;
-	document.writeln(`<a href="https://dev.azure.com/project-pokemon/${pc}/_apis/build/builds/${id}/artifacts?artifactName=NHSE&api-version=5.1&$format=zip">Click here to download the latest version of NHSE.<\a>`);
-  } else {
-    document.writeln('Azure is probably down or something idk');
-  }
-  
-  document.writeln('<br><br>');
-  document.writeln('Made by <a href="https://github.com/berichan">berichan</a> that has 0 webdev knowledge.');
-  document.writeln('Get the source of this website by <a href="https://github.com/berichan/GetNHSE">clicking here</a>.');
+// make this a little more portable
+var organization = getParameterByName('org');
+var project = getParameterByName('proj');
+var projurl = getParameterByName('projurl');
+
+if (organization===null || project ===null || projurl ===null)
+{
+	organization = deforganization;
+	project = defproject;
+	projurl = defprojurl;
 }
 
-request.send();
+document.getElementById("title").innerHTML += `${project} build.`;
+document.getElementById("loader").innerHTML += `${project}`;
+document.getElementById("errorhelp").innerHTML += `Go to the <a href="${projurl}">${project} source here</a> or directly to the <a href="https://dev.azure.com/${organization}/${project}/_build?view=runs">Pipelines here</a>.`;
+
+try {
+	var request = new XMLHttpRequest();
+	var azureUri = `https://dev.azure.com/${organization}/${project}/_apis/build/builds?api-version=5.1`;
+	request.open('GET', azureUri, true);
+	request.onload = function () {
+		if (IsJsonString(this.response))
+		{
+			var data = JSON.parse(this.response);
+			if (request.status >= 200 && request.status < 400) {
+				var id = data.value[0].id;
+				var pc = data.value[0].definition.project.id;
+				document.getElementById("loader").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Click here to download the latest version of ${project}.<\a>`;
+				} else {
+				document.getElementById("loader").innerHTML ='An error occured';
+			}
+		}
+		else
+			document.getElementById("loader").innerHTML = 'No REST json returned. Make sure your parameters are correct!';
+	}
+	request.send();
+}
+catch(err) {
+	document.getElementById("loader").innerHTML = err.message;
+}
+
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
