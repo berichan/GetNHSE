@@ -14,7 +14,7 @@ The following parameters are required:
 
 For example, 
 
-[https://berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE)
+[https://berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](https://berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE)
 
 will get you the latest Azure Pipeline build for NHSE, and will redirect users directly to the Pipeline/source if anything is going wrong.
 
