@@ -13,7 +13,7 @@ request.onload = function () {
   
   document.writeln('<br><br>');
   document.writeln('Made by <a href="https://github.com/berichan">berichan</a> that has 0 webdev knowledge.');
-  document.writeln('Get the source of this website by <a href="https://github.com/berichan/nhsite">clicking here</a>.');
+  document.writeln('Get the source of this website by <a href="https://github.com/berichan/GetNHSE">clicking here</a>.');
 }
 
 request.send();
