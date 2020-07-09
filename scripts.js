@@ -6,7 +6,7 @@ request.onload = function () {
   if (request.status >= 200 && request.status < 400) {
     let id = data.value[0].id;
 	let pc = data.value[0].definition.project.id;
-	document.writeln(`<a href="https://dev.azure.com/project-pokemon/NHSE/_apis/build/builds/${id}/artifacts?artifactName=${pc}&api-version=5.1&$format=zip">Click here to download the latest version of NHSE.<\a>`);
+	document.writeln(`<a href="https://dev.azure.com/project-pokemon/${pc}/_apis/build/builds/${id}/artifacts?artifactName=NHSE&api-version=5.1&$format=zip">Click here to download the latest version of NHSE.<\a>`);
   } else {
     document.writeln('Azure is probably down or something idk');
   }
