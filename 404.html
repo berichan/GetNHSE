@@ -1,0 +1,52 @@
+<html><head>
+<link href="https://mirayxs.github.io/MirayCDN/CSS/404.css" rel="stylesheet">
+
+		<title>Page Not Found</title>
+
+<style>
+    #nav, a:link {
+	color: #818386;
+	text-decoration: none;
+	margin-top: 2vh;
+	text-align: center;
+}
+        
+    a:visited {
+	color: #818386;
+	text-decoration: none;
+	margin-top: 2vh;
+	text-align: center;
+}
+</style>
+
+</head>
+
+	<body>
+<br><br><br><br><br><br><br><br>
+<h1>404</h1>
+<h2 class="text">Page Not Found.</h2>
+<h3 id="textRandom">Sorry, we can’t find the page you were looking for.</h3>
+<h3 id="GoBack"><a href="https://berichan.github.io/GetNHSE/">Go back to the mainpage</a></h3>
+
+
+<script>
+
+/* 404 strings */
+
+var strarray = new Array("The requested page cannot be found","Sorry, we can’t find the page you were looking for.","Oh dear, this link isn’t working.","Oops! Something is broken.","There's nothing here.","Oh no! Page not found.");
+
+randomnum = Math.round(Math.random());
+
+document.getElementById("textRandom").innerHTML =strarray[randomnum]
+
+/* Go back... Return... strings*/
+
+var strarrayBack = new Array("Go back to the main page","Go back to the mainpage","Return to the main page","Return to the mainpage", "Go back to the homepage", "Go back to the home page","Return to the homepage","Return to the homepage");
+
+randomnumBack = Math.round(Math.random());
+
+document.getElementById("GoBack").innerHTML =`<a href="https://berichan.github.io/GetNHSE/">${strarrayBack[randomnumBack]}</a>`
+
+</script>
+	
+</body></html>
