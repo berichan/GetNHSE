@@ -15,7 +15,7 @@ if (organization===null || project ===null || projurl ===null)
 }
 
 document.getElementById("title").innerHTML += `${project} build.`;
-document.getElementById("loader").innerHTML += `${project}`;
+document.getElementById("loader").innerHTML += `${project}...`;
 document.getElementById("errorhelp").innerHTML += `Go to the <a href="${projurl}">${project} source here</a> or directly to the <a href="https://dev.azure.com/${organization}/${project}/_build?view=runs">Pipelines here</a>.`;
 
 try {
@@ -25,14 +25,20 @@ try {
 	request.onload = function () {
 		if (IsJsonString(this.response))
 		{
-			var data = JSON.parse(this.response);
-			if (request.status >= 200 && request.status < 400) {
-				var id = data.value[0].id;
-				var pc = data.value[0].definition.project.id;
-				document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
-			        document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Download Latest ${project} Version</a>`;
+			try
+			{
+				var data = JSON.parse(this.response);
+				if (request.status >= 200 && request.status < 400) {
+					var id = data.value[0].id;
+					var pc = data.value[0].definition.project.id;
+					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Download Latest ${project} Version</a>`;
 				} else {
-				document.getElementById("loader").innerHTML ='An error occured';
+					document.getElementById("loader").innerHTML ='An error occured';
+				}
+			}
+			catch (err) {
+				document.getElementById("loader").innerHTML = err.message;
 			}
 		}
 		else

@@ -1,0 +1,56 @@
+@font-face{font-family:sf text;src:url(../fonts/SF-UI-Text-Bold.otf)}@font-face{font-family:sf text medium;font-weight:400;src:url(../fonts/SF-UI-Text-Medium.otf)}@font-face{font-family:sf text regular;font-weight:400;src:url(../fonts/SF-UI-Text-Regular.otf)}body,html{margin:0;height:100%;width:auto;background:rgba(0,0,0,.9) url(../CSSbyMirayXS/main.png);background-blend-mode:darken;overflow:hidden;background-size:cover;background-repeat:no-repeat;background-position:center}.center{position:absolute;font-family:sf text regular;text-align:center;color:#fff;top:50%;left:50%;font-size:30px;transform:translate(-50%,-50%)}#thicc{background-size:cover;font-size:55px;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:url(../CSSbyMirayXS/main.png);font-family:sf text;overflow:hidden;background-size:cover;background-position:center}#learnmore{background-size:cover;font-size:35px;line-height:60px;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:url(../CSSbyMirayXS/main.png);font-family:sf text;overflow:hidden;background-size:cover;background-position:center}
+
+*{box-sizing:border-box}body{background-color:#fff}.header{margin:0;overflow:hidden;background-image:url(../CSSbyMirayXS/main.png);background-size:cover;padding:30px 20px}
+
+center{;transform:translate(-50%,-50%)}#getDownload{background-size:cover;;background-image:url(../CSSbyMirayXS/main.png);font-family:sf text;overflow:hidden;background-size:cover;background-position:center}#learnmore{background-size:cover;font-size:35px;line-height:60px;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:url(../CSSbyMirayXS/main.png);font-family:sf text;overflow:hidden;background-size:cover;background-position:center}
+
+
+/* Button */
+
+@font-face {
+    font-family: "SF Text Regular";
+    font-weight: 400;
+    src: url("../fonts/SF-UI-Text-Regular.otf");
+}
+
+
+button {
+    box-sizing: border-box;
+    margin: 8px 0px;
+    padding: 15px 25px;
+    font-family: "SF Text Regular"; 
+  font-size: 24px;
+   border-image: url("../CSSbyMirayXS/main.png") 27 stretch;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    border-radius: 12px;
+  border: none;
+    color: white;
+  box-shadow: 0 9px #818386;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+/* Visited Links, Unvisited Links */
+/* Based on: Left Animal Crossing Green Joycon Color, Right Animal Crossing Blue Joycon Color */
+
+
+    #nav, a:link {
+	color: #96F5F5;
+	text-decoration: none;
+	margin-top: 2vh;
+	text-align: center;
+}
+        
+    a:visited {
+	/* color: #45ddc0; */
+	color: #82FF96;
+	text-decoration: none;
+	margin-top: 2vh;
+	text-align: center;
+}

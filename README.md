@@ -2,7 +2,7 @@
 
 A project/website that originally (and still does, by default) uses Azure API REST requests to grab the latest Pipeline build of [NHSE](https://github.com/kwsch/NHSE) but can be used for any Azure Pipeline.
 
-You may use this by either forking it, or simply adding your own parameters to the URL.
+You may use this by simply adding your own parameters to the URL.
 
 The following parameters are required:
 
@@ -14,8 +14,10 @@ The following parameters are required:
 
 For example, 
 
-[https://berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](https://berichan.github.io/GetNHSE/index.html?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE)
+[https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE)
 
 will get you the latest Azure Pipeline build for NHSE, and will redirect users directly to the Pipeline/source if anything is going wrong.
+
+CSS very graciously provided by [MirayXS](https://github.com/MirayXS)
 
 Enjoy!

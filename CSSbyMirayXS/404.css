@@ -1,0 +1,38 @@
+@font-face {
+ font-family: Ubuntu-Medium;
+ src: url(../fonts/Ubuntu-Medium.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu-Regular;
+    src: url(../fonts/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu-Light;
+    src: url(../fonts/Ubuntu-Light.ttf);
+}
+
+body {
+    background-color: #232327;
+}
+
+h1 {
+  color: #E1E1E1;
+  font-size: 100px;
+  font-family:Ubuntu-Medium;
+  text-align: center;
+}
+
+h2 {
+    font-family: Ubuntu-Regular;
+    text-align: center !important;
+    color: #E1E1E1 !important;
+}
+
+h3 {
+    font-family: Ubuntu-Light;
+    text-align: center !important;
+    color: #E1E1E1 !important;
+    font-size: 150%
+}
