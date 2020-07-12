@@ -1,6 +1,8 @@
 const deforganization = "project-pokemon";
 const defproject = "NHSE";
 const defprojurl = "https://github.com/kwsch/NHSE";
+const oneHour = 60 * 60 * 1000;
+const oneDay = 24 * oneHour;
 
 // make this a little more portable
 var organization = getParameterByName('org');
@@ -29,12 +31,17 @@ try {
 			{
 				var data = JSON.parse(this.response);
 				if (request.status >= 200 && request.status < 400) {
-					var id = data.value[0].id;
-					var pc = data.value[0].definition.project.id;
-					var timestamp = new Date(data.value[0].finishTime).toString();
-					document.getElementById("buildTime").innerHTML =`Built on ${timestamp}`;	
+					const id = data.value[0].id;
+					const pc = data.value[0].definition.project.id;
+					const timestamp = new Date(data.value[0].finishTime);
+					const timestampToday = new Date();
+					const diffDays = Math.floor(Math.abs((timestampToday - timestamp) / oneDay));
+					const diffHours = Math.round(Math.abs((timestampToday - timestamp) / oneHour)) - (diffDays * 24);
+					const pluralDays = diffDays === 1 ? '' : 's';
+					const pluralHours = diffHours === 1 ? '' : 's';
+					document.getElementById("buildTime").innerHTML =`Build no. ${id} built on ${timestamp} (${diffDays} day${pluralDays}, ${diffHours} hour${pluralHours} ago)`;	
 					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
-					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Download Latest ${project} Version</a>`;				
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&%24format=zip">Download Latest ${project} Version</a>`;				
 				} else {
 					document.getElementById("loader").innerHTML ='An error occured';
 				}
