@@ -32,8 +32,9 @@ try {
 					var id = data.value[0].id;
 					var pc = data.value[0].definition.project.id;
 					var timestamp = new Date(data.value[0].finishTime).toString();
-					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.<br><p2> Built on ${timestamp} </p>`;
-					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Download Latest ${project} Version</a>`;
+					document.getElementById("buildTime").innerHTML =`Built on ${timestamp}`;	
+					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&$format=zip">Download Latest ${project} Version</a>`;				
 				} else {
 					document.getElementById("loader").innerHTML ='An error occured';
 				}
