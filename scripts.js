@@ -36,7 +36,7 @@ try {
 					const timestamp = new Date(data.value[0].finishTime);
 					const timestampToday = new Date();
 					const diffDays = Math.floor(Math.abs((timestampToday - timestamp) / oneDay));
-					const diffHours = Math.round(Math.abs((timestampToday - timestamp) / oneHour)) - (diffDays * 24);
+					const diffHours = Math.floor(Math.abs((timestampToday - timestamp) / oneHour)) - (diffDays * 24);
 					const pluralDays = diffDays === 1 ? '' : 's';
 					const pluralHours = diffHours === 1 ? '' : 's';
 					document.getElementById("buildTime").innerHTML =`Build no. ${id} built on ${timestamp} (${diffDays} day${pluralDays}, ${diffHours} hour${pluralHours} ago)`;	
