@@ -14,9 +14,9 @@ The following parameters are required:
 
 For example, 
 
-[https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE](https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=NHSE&projurl=https://github.com/kwsch/NHSE)
+[https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=pkNX&projurl=https://github.com/kwsch/pkNX](https://berichan.github.io/GetNHSE/?org=project-pokemon&proj=pkNX&projurl=https://github.com/kwsch/pkNX)
 
-will get you the latest Azure Pipeline build for NHSE, and will redirect users directly to the Pipeline/source if anything is going wrong.
+will get you the latest Azure Pipeline build for pkNX, and will redirect users directly to the Pipeline/source if anything is going wrong.
 
 CSS very graciously provided by [MirayXS](https://github.com/MirayXS)
 
