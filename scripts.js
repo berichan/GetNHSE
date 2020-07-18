@@ -1,7 +1,8 @@
 const deforganization = "project-pokemon";
 const defproject = "NHSE";
 const defprojurl = "https://github.com/kwsch/NHSE";
-const oneHour = 60 * 60 * 1000;
+const oneMinute = 60 * 1000;
+const oneHour = 60 * oneMinute;
 const oneDay = 24 * oneHour;
 
 // make this a little more portable
@@ -59,9 +60,16 @@ function getBuildTimeDifferenceString(timestamp) {
 	const timestampToday = new Date();
 	const diffDays = Math.floor(Math.abs((timestampToday - timestamp) / oneDay));
 	const diffHours = Math.floor(Math.abs((timestampToday - timestamp) / oneHour)) - (diffDays * 24);
+	
+	if (diffDays===0 && diffHours===0)
+	{
+		const diffMinutes = Math.floor(Math.abs((timestampToday - timestamp) / oneMinute)) - (diffDays * 24) - (diffHours * 60);
+		const pluralMins = diffMinutes === 1 ? '' : 's';
+		return `(${diffMinutes} minute${pluralMins} ago)`;
+	}
+	
 	const pluralDays = diffDays === 1 ? '' : 's';
 	const pluralHours = diffHours === 1 ? '' : 's';
-	
 	const dayString = diffDays < 1 ? '' : `${diffDays} day` + pluralDays + ', ';
 	
 	return `(${dayString}${diffHours} hour${pluralHours} ago)`
