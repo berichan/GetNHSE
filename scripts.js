@@ -5,6 +5,7 @@ const oneMinute = 60 * 1000;
 const oneHour = 60 * oneMinute;
 const oneDay = 24 * oneHour;
 
+var timedOut = true;
 // make this a little more portable
 var organization = getParameterByName('org');
 var project = getParameterByName('proj');
@@ -16,6 +17,15 @@ if (organization===null || project ===null || projurl ===null)
 	project = defproject;
 	projurl = defprojurl;
 }
+
+setTimeout(function() {
+	if (timedOut)
+	{
+		var msgString = 'The request to Azure DevOps API timed out. This may be because of a script blocker, unsupported browser, or no network connection. Please disable any blockers and try again.'
+		document.getElementById("loader").innerHTML = msgString;
+		alert(msgString);
+	}
+}, 4000);
 
 document.getElementById("title").innerHTML += `${project} build.`;
 document.getElementById("loader").innerHTML += `${project}...`;
@@ -38,22 +48,29 @@ try {
 					const timediff = getBuildTimeDifferenceString(timestamp);
 					document.getElementById("buildTime").innerHTML =`Build no. ${id} built on ${timestamp} ${timediff}`;	
 					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
-					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&%24format=zip">Download Latest ${project} Version</a>`;				
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&%24format=zip">Download Latest ${project} Version</a>`;	
+					timedOut = false;
 				} else {
-					document.getElementById("loader").innerHTML ='An error occured';
+					document.getElementById("loader").innerHTML ='A request error occured';
+					timedOut = false;
 				}
 			}
 			catch (err) {
 				document.getElementById("loader").innerHTML = err.message;
+				timedOut = false;
 			}
 		}
 		else
+		{
 			document.getElementById("loader").innerHTML = 'No REST json returned. Make sure your parameters are correct!';
+			timedOut = false;
+		}
 	}
 	request.send();
 }
 catch(err) {
 	document.getElementById("loader").innerHTML = err.message;
+	timedOut = false;
 }
 
 function getBuildTimeDifferenceString(timestamp) {
