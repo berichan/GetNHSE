@@ -46,7 +46,7 @@ try {
 					const pc = data.value[0].definition.project.id;
 					const timestamp = new Date(data.value[0].finishTime);
 					const timediff = getBuildTimeDifferenceString(timestamp);
-					document.getElementById("buildTime").innerHTML =`Build no. ${id} built on ${timestamp} ${timediff}`;	
+					document.getElementById("buildTime").innerHTML =`<br2>Build no. ${id} built ${timediff}.<br2>(on ${timestamp})`;	
 					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
 					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&%24format=zip">Download Latest ${project} Version</a>`;	
 					timedOut = false;
@@ -82,14 +82,14 @@ function getBuildTimeDifferenceString(timestamp) {
 	{
 		const diffMinutes = Math.floor(Math.abs((timestampToday - timestamp) / oneMinute)) - (diffDays * 24) - (diffHours * 60);
 		const pluralMins = diffMinutes === 1 ? '' : 's';
-		return `(${diffMinutes} minute${pluralMins} ago)`;
+		return `${diffMinutes} minute${pluralMins} ago`;
 	}
 	
 	const pluralDays = diffDays === 1 ? '' : 's';
 	const pluralHours = diffHours === 1 ? '' : 's';
 	const dayString = diffDays < 1 ? '' : `${diffDays} day` + pluralDays + ', ';
 	
-	return `(${dayString}${diffHours} hour${pluralHours} ago)`
+	return `${dayString}${diffHours} hour${pluralHours} ago`
 }
 
 function getParameterByName(name, url) {
