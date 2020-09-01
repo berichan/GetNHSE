@@ -10,12 +10,26 @@ var timedOut = true;
 var organization = getParameterByName('org');
 var project = getParameterByName('proj');
 var projurl = getParameterByName('projurl');
+var artName = getParameterByName('proj');
 
-if (organization===null || project ===null || projurl ===null)
+var query = window.location.href; 
+var endq = query.split('?');
+if (endq.length === 2) 
+{
+	if (endq[1].toLowerCase() == 'sysbot') //sb.ac
+	{
+		organization = 'project-pokemon';
+		project = 'SysBot.AnimalCrossing';
+		projurl = 'https://github.com/kwsch/SysBot.AnimalCrossing';
+		artName = 'SysBot-ACNH';
+	}
+}
+else if (organization===null || project ===null || projurl ===null)
 {
 	organization = deforganization;
 	project = defproject;
 	projurl = defprojurl;
+	artName = defproject;
 }
 
 setTimeout(function() {
@@ -33,7 +47,7 @@ document.getElementById("errorhelp").innerHTML += `Go to the <a href="${projurl}
 
 try {
 	var request = new XMLHttpRequest();
-	var azureUri = `https://dev.azure.com/${organization}/${project}/_apis/build/builds?api-version=5.1`;
+	var azureUri = `https://dev.azure.com/${organization}/${project}/_apis/build/builds?api-version=6.0`;
 	request.open('GET', azureUri, true);
 	request.onload = function () {
 		if (IsJsonString(this.response))
@@ -48,7 +62,7 @@ try {
 					const timediff = getBuildTimeDifferenceString(timestamp);
 					document.getElementById("buildTime").innerHTML =`<br2>Build no. ${id} built ${timediff}.<br2>(on ${timestamp})`;	
 					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
-					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${project}&api-version=5.1&%24format=zip">Download Latest ${project} Version</a>`;	
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=6.0&%24format=zip">Download Latest ${project} Version</a>`;	
 					timedOut = false;
 				} else {
 					document.getElementById("loader").innerHTML ='A request error occured';
