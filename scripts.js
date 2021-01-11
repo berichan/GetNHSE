@@ -29,7 +29,7 @@ if (endq.length === 2)
 		organization = 'berichan';
 		project = 'SysBot.AnimalCrossing';
 		projurl = 'https://github.com/berichan/SysBot.AnimalCrossing';
-		artName = 'SysBot-ACNH';
+		artName = 'SysBot-ACNH-Extra';
 	}
 }
 else if (organization===null || project ===null || projurl ===null)
