@@ -31,6 +31,14 @@ if (endq.length === 2)
 		projurl = 'https://github.com/berichan/SysBot.AnimalCrossing';
 		artName = 'SysBot-ACNH-Extra';
 	}
+	
+	if (endq[1].toLowerCase() == 'sysbotorders') //sb.ac-orders (mine)
+	{
+		organization = 'berichan';
+		project = 'SysBot.ACNHOrders';
+		projurl = 'https://github.com/berichan/SysBot.ACNHOrders';
+		artName = 'SysBot-ACNH-Orders';
+	}
 }
 else if (organization===null || project ===null || projurl ===null)
 {
