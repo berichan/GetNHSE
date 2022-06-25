@@ -78,7 +78,7 @@ try {
 					const timediff = getBuildTimeDifferenceString(timestamp);
 					document.getElementById("buildTime").innerHTML =`Build no. ${id} built ${timediff}.<br>${timestamp}`;	
 					document.getElementById("loader").innerHTML =`Click below to download the latest version of ${project}.`;
-					document.getElementById("getDownload").innerHTML =`<href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=6.0&%24format=zip"> Download Latest ${project} Version`;	
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=6.0&%24format=zip">Download Latest ${project} Version</a>`;	
 					timedOut = false;
 				} else {
 					document.getElementById("loader").innerHTML ='A request error occured';
