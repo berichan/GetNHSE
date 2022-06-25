@@ -57,9 +57,9 @@ setTimeout(function() {
 	}
 }, 4000);
 
-document.getElementById("title").innerHTML += `${project} build.`;
+document.getElementById("title").innerHTML += `${project}`;
 document.getElementById("loader").innerHTML += `${project}...`;
-document.getElementById("errorhelp").innerHTML += `Go to the <a href="${projurl}">${project} source here</a> or directly to the <a href="https://dev.azure.com/${organization}/${project}/_build?view=runs">Pipelines here</a>.`;
+document.getElementById("errorhelp").innerHTML = `Go to the <a href="${projurl}">${project} source here.</a><br>Go directly to the <a href="https://dev.azure.com/${organization}/${project}/_build?view=runs">Pipelines here</a>.`;
 
 try {
 	var request = new XMLHttpRequest();
@@ -76,8 +76,8 @@ try {
 					const pc = data.value[0].definition.project.id;
 					const timestamp = new Date(data.value[0].finishTime);
 					const timediff = getBuildTimeDifferenceString(timestamp);
-					document.getElementById("buildTime").innerHTML =`<br2>Build no. ${id} built ${timediff}.<br2>(on ${timestamp})`;	
-					document.getElementById("loader").innerHTML =`Click the button below to download the latest version of ${project}.`;
+					document.getElementById("buildTime").innerHTML =`Build no. ${id} built ${timediff}.<br>${timestamp}`;	
+					document.getElementById("loader").innerHTML =`Click below to download the latest version of ${project}.`;
 					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=6.0&%24format=zip">Download Latest ${project} Version</a>`;	
 					timedOut = false;
 				} else {
