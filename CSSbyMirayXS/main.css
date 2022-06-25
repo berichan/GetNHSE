@@ -1,0 +1,24 @@
+h1,h3{
+    margin-bottom:5px
+}
+hr{
+    width:1px;
+    opacity:.3;
+    margin:0 35px
+}
+.field{
+    display:flex;
+    flex-direction:row
+}
+.button{
+    margin-top:15px
+}
+.secret{
+    opacity:.1;
+    transition:.5s;
+    user-select:none
+}
+.secret:hover{
+    opacity:.9;
+    transition:.5s
+}

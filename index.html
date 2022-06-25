@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="CSSbyMirayXS/style.css">
-	<title id ="title">Get the latest </title>
-</head>
-
-<body>
-	<div class="center">
-	<h5 id ="loader">Fetching latest </h5>
-	<button id="getDownload">Download the Latest Version</button>
-	<br><br>
-	<p2 id="buildTime"></p2>
-	<h5 id ="errorhelp">Something wrong above?<br> <h5>
-	<p>Get the source of this website by <a href="https://github.com/berichan/GetNHSE">clicking here</a>.</p>
-
-	<script src="scripts.js"></script></div>
-</body>
-
+  <head>
+    <title id="title">Download | </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creates a direct link to your latest Azure pipeline build.">
+    <meta name="author" content="berichan">
+    <meta name="theme-color" content="#E8AEFF">
+    <meta property="og:site_name" content="berichan.github.io/GetNHSE">
+    <meta property="og:title" content="Get the latest build of your Azure pipeline build.">
+    <meta property="og:type" content="video.movie">
+    <meta property="og:url" content="berichan.github.io/GetNHSE">
+    <meta property="og:description" content="Creates a direct link to your latest Azure pipeline build.">
+    <link rel="stylesheet" href="CSSbyMirayXS/reset.css">
+    <link rel="stylesheet" href="CSSbyMirayXS/style.css">
+    <link rel="stylesheet" href="CSSbyMirayXS/main.css">
+  </head>
+  <body>
+    <div class="section">
+      <div class="section-content">
+        <div class="field">
+          <div>
+            <h1>Download</h1>
+            <h3 id="loader">Fetching latest </h3>
+            <h3 class="secret" id="buildTime"></h3>
+            <a class="button" id="getDownload">Download the Latest Version</a>
+          </div>
+          <hr>
+          <div style="width: 300px;">
+            <h1>Support</h1>
+            <h3>Something wrong above?</h3>
+            <h3 class="secret" id="errorhelp"></h3>
+            <a class="button" href="https://github.com/berichan/GetNHSE" target="_blank">Website Source</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div class="section">
+        <div class="section-content">
+          <div class="field">
+            <div>
+              <h1>Error</h1>
+              <h3>This site needs to use JavaScript to ensure the best user experience. Please turn on JavaScript and refresh the page.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </noscript>
+    <script src="scripts.js"></script>
+    </div>
+  </body>
 </html>
