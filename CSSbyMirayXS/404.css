@@ -1,16 +1,16 @@
 @font-face {
  font-family: Ubuntu-Medium;
- src: url(/ttf/Ubuntu-Medium.ttf);
+ src: url(ttf/Ubuntu-Medium.ttf);
 }
 
 @font-face {
     font-family: Ubuntu-Regular;
-    src: url(/ttf/Ubuntu-Regular.ttf);
+    src: url(ttf/Ubuntu-Regular.ttf);
 }
 
 @font-face {
     font-family: Ubuntu-Light;
-    src: url(/ttf/Ubuntu-Light.ttf);
+    src: url(ttf/Ubuntu-Light.ttf);
 }
 
 body {
