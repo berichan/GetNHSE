@@ -43,7 +43,7 @@ if (endq.length === 2)
 	if (endq[1].toLowerCase() == 'sv') //sb.psv
 	{
 		organization = 'berichan';
-		project = 'SysBot.SV;
+		project = 'SysBot.PokemonScarletViolet;
 		projurl = 'https://github.com/berichan/SysBot.PokemonScarletViolet';
 		artName = 'SysBot-x64';
 	}
