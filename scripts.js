@@ -39,6 +39,14 @@ if (endq.length === 2)
 		projurl = 'https://github.com/berichan/SysBot.ACNHOrders';
 		artName = 'SysBot-ACNH-Orders';
 	}
+	
+	if (endq[1].toLowerCase() == 'sv') //sb.psv
+	{
+		organization = 'berichan';
+		project = 'SysBot.SV;
+		projurl = 'https://github.com/berichan/SysBot.PokemonScarletViolet';
+		artName = 'SysBot-x64';
+	}
 }
 else if (organization===null || project ===null || projurl ===null)
 {
@@ -78,7 +86,7 @@ try {
 					const timediff = getBuildTimeDifferenceString(timestamp);
 					document.getElementById("buildTime").innerHTML =`Build no. ${id} built ${timediff}.<br>${timestamp}`;	
 					document.getElementById("loader").innerHTML =`Click below to download the latest version of ${project}.`;
-					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=6.0&%24format=zip">Download Latest ${project} Version</a>`;	
+					document.getElementById("getDownload").innerHTML =`<a href="https://dev.azure.com/${organization}/${pc}/_apis/build/builds/${id}/artifacts?artifactName=${artName}&api-version=7.0&%24format=zip">Download Latest ${project} Version</a>`;	
 					timedOut = false;
 				} else {
 					document.getElementById("loader").innerHTML ='A request error occured';
